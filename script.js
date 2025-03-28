@@ -78,5 +78,29 @@ document.body.append(heading,header,main)
 
 */
 
+//! Creating multiple elements dynamically
 
+function dynamic(tagname,content,attrname,attrvalue){
+    const ele = document.createElement(tagname);
+    ele.innerHTML =content;
+    ele.setAttribute(attrname,attrvalue)
+    return ele;
+}
 
+const heading = dynamic("h1","Create Element Task", "class","head")
+const heading1 =dynamic("h1","Above multiple elements are created dynamically","class","head")
+const header= dynamic("header","","class","header")
+const navigation = dynamic("nav","","class","nav")
+const order = dynamic("ul","","style","display:flex; justify-content:space-between; align-items:center; gap:20px; font-size:2rem")
+const list = dynamic("li","About","style","list-style:none")
+const list1 = dynamic("li","Pricing","style","list-style:none")
+const list2 = dynamic("li","Contact","style","list-style:none")
+const main = dynamic("main","","class","container")
+const section=dynamic("section","","class","container")
+
+order.append(list,list1,list2)
+navigation.appendChild(order)
+header.appendChild(navigation)
+section.appendChild(heading1)
+main.appendChild(section)
+document.body.append(heading,header,main)
